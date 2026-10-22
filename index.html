@@ -272,7 +272,7 @@ body{background-attachment:scroll}
 </div><div class="empty" id="emptyState">No tools found. Try another search.</div>
 </section>
 <section class="wrap feature-band" id="popular">
-<div class="feature-card"><div class="kicker" data-i18n="madeSimple">MADE SIMPLE</div><h3 data-i18n="featureTitle">Less busywork.<br><span class="gradient">More doing.</span></h3><p data-i18n="featureDesc">Quick, helpful tools without the clutter. Your files stay on your device for image processing — no upload needed.</p><button class="primary" data-open="image" data-i18n="tryImage">Try Image Studio ↗</button><div class="mini-orb"></div></div>
+<div class="feature-card"><div class="kicker" data-i18n="madeSimple">MADE SIMPLE</div><h3 data-i18n-html="featureTitle">Less busywork.<br><span class="gradient">More doing.</span></h3><p data-i18n="featureDesc">Quick, helpful tools without the clutter. Your files stay on your device for image processing — no upload needed.</p><button class="primary" data-open="image" data-i18n="tryImage">Try Image Studio ↗</button><div class="mini-orb"></div></div>
 <div class="feature-card"><div class="kicker" data-i18n="privacyFirst">PRIVACY MINDED</div><h3 data-i18n="privacyTitle">Your work stays yours.</h3><p data-i18n="privacyDesc">Image compression and conversion happen locally in your browser. We don't upload your selected image to a server.</p><div class="stats"><div class="stat"><strong>0</strong><span data-i18n="uploads">Image uploads</span></div><div class="stat"><strong>Free</strong><span data-i18n="alwaysFree">Always free</span></div><div class="stat"><strong>12</strong><span data-i18n="languages">Languages</span></div></div></div>
 </section>
 <section class="wrap section" id="about"><div class="section-head"><div><div class="kicker" data-i18n="aboutKicker">A LITTLE ABOUT US</div><h2 data-i18n="aboutTitle">Useful, not complicated.</h2><div class="section-sub" data-i18n="aboutDesc">Utilify brings everyday digital tasks together in one friendly place.</div></div></div></section>
@@ -374,7 +374,7 @@ function setLanguage(next){
    const translated=(toolCardTranslations[lang]&&toolCardTranslations[lang][key])||(translations[lang]&&translations[lang][key]);
    if(translated)el.textContent=translated;
  });
- $$('[data-i18n-html]').forEach(el=>{const key=el.dataset.i18nHtml;if(translations[lang]?.[key])el.innerHTML=translations[lang][key]});
+ $('[data-i18n-html]').forEach(el=>{const key=el.dataset.i18nHtml;const translated=(translations[lang]&&translations[lang][key])||(translations.en&&translations.en[key]);if(translated)el.innerHTML=translated});
  if($('#modalBackdrop').classList.contains('open')&&currentTool)renderTool(currentTool);
  translateModalStatic();
  buildLanguageMenu();
