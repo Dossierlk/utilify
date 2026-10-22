@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#f6f7fb">
 <meta name="description" content="Utilify — free, beautifully simple online tools for everyday tasks.">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg?v=1">
+<meta name="apple-mobile-web-app-title" content="Utilify">
+<meta name="application-name" content="Utilify">
 <title>Utilify — Little tools. Big help.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -245,7 +248,7 @@ body{background-attachment:scroll}
 </head>
 <body>
 <header class="topbar"><div class="wrap nav">
-<a class="brand" href="#" aria-label="Utilify home"><span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4.5 13h6L10 22l9.5-12h-6L13 2Z"/></svg></span>utilify<span style="color:var(--accent)">.</span></a>
+<a class="brand" href="#" aria-label="Utilify home"><span class="brand-mark"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M17 17v17a15 15 0 0 0 30 0V17" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><circle cx="48" cy="14" r="5" fill="currentColor" stroke="none"/></svg></span>utilify<span style="color:var(--accent)">.</span></a>
 <nav class="navlinks"><a href="#tools" data-i18n="navTools">Explore tools</a><a href="#popular" data-i18n="navPopular">Popular</a><a href="#about" data-i18n="navAbout">About</a></nav>
 <div class="navactions"><div class="language-picker"><button class="icon-btn language-trigger" id="langBtn" aria-label="Choose language" title="Choose language"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></button><div class="language-menu" id="languageMenu" hidden></div></div><button class="icon-btn" id="themeBtn" aria-label="Toggle theme"><svg id="themeIcon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button></div>
 </div></header>
@@ -278,7 +281,7 @@ body{background-attachment:scroll}
 </section>
 <section class="wrap section" id="about"><div class="section-head"><div><div class="kicker" data-i18n="aboutKicker">A LITTLE ABOUT US</div><h2 data-i18n="aboutTitle">Useful, not complicated.</h2><div class="section-sub" data-i18n="aboutDesc">Utilify brings everyday digital tasks together in one friendly place.</div></div></div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#" style="font-size:17px"><span class="brand-mark" style="width:30px;height:30px;border-radius:10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 2 4.5 13h6L10 22l9.5-12h-6L13 2Z"/></svg></span>utilify.</a><span class="footer-credit" data-i18n="footer">Made with <span class="heart-mark">♥</span> in Sri Lanka 🇱🇰</span><span class="footer-copyright">© <span id="year"></span> Utilify</span></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#" style="font-size:17px"><span class="brand-mark" style="width:30px;height:30px;border-radius:10px"><svg viewBox="0 0 64 64" fill="none" aria-hidden="true"><path d="M17 17v17a15 15 0 0 0 30 0V17" stroke="currentColor" stroke-width="6.5" stroke-linecap="round"/><circle cx="48" cy="14" r="5" fill="currentColor" stroke="none"/></svg></span>utilify.</a><span class="footer-credit" data-i18n="footer">Made with <span class="heart-mark">♥</span> in Sri Lanka 🇱🇰</span><span class="footer-copyright">© <span id="year"></span> Utilify</span></div></footer>
 <div id="toast" role="status" aria-live="polite"></div><div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Tool</h2><button class="close" id="closeModal" aria-label="Close">×</button></div><div id="modalBody"></div></div></div>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
