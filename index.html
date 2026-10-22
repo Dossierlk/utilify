@@ -202,6 +202,32 @@ body{
 .heart-mark{color:#f16d8f}
 @media(max-width:640px){.language-menu{right:-42px;width:200px}}
 
+
+
+/* Mobile rendering performance: keep the glass look, reduce expensive per-frame work */
+html{scroll-behavior:auto;overscroll-behavior-y:contain}
+body{background-attachment:scroll}
+@media(hover:none), (pointer:coarse){
+  .tool-card,.feature-card{transform:none!important;animation:none!important;}
+  .tool-card:before{display:none}
+  .tool-card:hover,.feature-card:hover{transform:none;box-shadow:var(--glass-shadow)}
+  .tool-card:hover .tool-icon,.brand:hover .brand-mark{transform:none;box-shadow:none}
+  .tool-card,.feature-card,.topbar,.pill,.icon-btn,.eyebrow,.tag,.filter,.searchbox input,.field input,.field textarea,.field select,.close,.stat,.result,.notice,.preview,.modal{
+    -webkit-backdrop-filter:blur(6px) saturate(125%);
+    backdrop-filter:blur(6px) saturate(125%);
+  }
+  .hero .eyebrow,.hero h1,.hero p,.searchbox,.quick-tags .tag{animation:none!important}
+  .tool-card{transition:border-color .18s ease,background .18s ease,box-shadow .18s ease}
+  button,.tag,.filter,.pill,.icon-btn,.primary,.close{transition:transform .14s ease,background .18s ease,border-color .18s ease}
+  .ripple{display:none}
+}
+@media(max-width:640px){
+  body{background-image:radial-gradient(ellipse at 12% 0%,rgba(95,151,255,.12),transparent 36%),radial-gradient(ellipse at 92% 20%,rgba(155,104,255,.10),transparent 34%)}
+  :root[data-theme="dark"] body{background-image:radial-gradient(ellipse at 16% 0%,rgba(50,116,210,.16),transparent 36%),radial-gradient(ellipse at 88% 20%,rgba(130,76,210,.12),transparent 36%)}
+  .modal-backdrop{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .modal{-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
@@ -265,7 +291,7 @@ function showToast(message,vibrate=true){const t=$('#toast');if(!t)return;t.text
 function haptic(ms=8){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
 function addRipple(target,event){if(!target||target.disabled)return;const rect=target.getBoundingClientRect();const size=Math.max(rect.width,rect.height)*1.15;const ripple=document.createElement('span');ripple.className='ripple';ripple.style.width=size+'px';ripple.style.height=size+'px';const x=event&&typeof event.clientX==='number'?event.clientX-rect.left:rect.width/2;const y=event&&typeof event.clientY==='number'?event.clientY-rect.top:rect.height/2;ripple.style.left=(x-size/2)+'px';ripple.style.top=(y-size/2)+'px';target.appendChild(ripple);setTimeout(()=>ripple.remove(),650)}
 document.addEventListener('click',e=>{const target=e.target.closest('button,.tool-card,.tag,.filter');if(!target)return;if(target.matches('button,.tag,.filter')){addRipple(target,e);haptic(target.classList.contains('primary')?12:7)}},{passive:true});
-$$('.tool-card').forEach((card,i)=>{card.style.setProperty('--card-index',i);card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true})});
+if(window.matchMedia('(hover: hover) and (pointer: fine)').matches){$('.tool-card').forEach((card,i)=>{card.style.setProperty('--card-index',i);card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true})})}else{$('.tool-card').forEach(card=>{card.style.animation='none'})}
 
 
 const languageOptions=[
