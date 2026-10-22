@@ -116,7 +116,7 @@ function showToast(message,vibrate=true){const t=$('#toast');if(!t)return;t.text
 function haptic(ms=8){try{if(navigator.vibrate)navigator.vibrate(ms)}catch(e){}}
 function addRipple(target,event){if(!target||target.disabled)return;const rect=target.getBoundingClientRect();const size=Math.max(rect.width,rect.height)*1.15;const ripple=document.createElement('span');ripple.className='ripple';ripple.style.width=size+'px';ripple.style.height=size+'px';const x=event&&typeof event.clientX==='number'?event.clientX-rect.left:rect.width/2;const y=event&&typeof event.clientY==='number'?event.clientY-rect.top:rect.height/2;ripple.style.left=(x-size/2)+'px';ripple.style.top=(y-size/2)+'px';target.appendChild(ripple);setTimeout(()=>ripple.remove(),650)}
 document.addEventListener('click',e=>{const target=e.target.closest('button,.tool-card,.tag,.filter');if(!target)return;if(target.matches('button,.tag,.filter')){addRipple(target,e);haptic(target.classList.contains('primary')?12:7)}},{passive:true});
-$('.tool-card').forEach((card,i)=>{card.style.setProperty('--card-index',i);card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true})});
+$$('.tool-card').forEach((card,i)=>{card.style.setProperty('--card-index',i);card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect();card.style.setProperty('--mx',(e.clientX-r.left)+'px');card.style.setProperty('--my',(e.clientY-r.top)+'px')},{passive:true})});
 
 function tr(k){return (translations[lang]&&translations[lang][k])||translations.en[k]||k}
 function setLanguage(next){
