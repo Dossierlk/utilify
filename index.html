@@ -204,6 +204,17 @@ body{
 
 
 
+/* Footer alignment: keep the maker credit and copyright on one baseline on phones */
+.footer-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:18px;row-gap:12px}
+.footer-brand{justify-self:start}.footer-credit{justify-self:center;text-align:center}.footer-copyright{justify-self:end;white-space:nowrap}
+@media(max-width:640px){
+  .footer{padding:20px 0 24px}
+  .footer-inner{grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:14px}
+  .footer-brand{grid-column:1;grid-row:1}
+  .footer-copyright{grid-column:2;grid-row:1;justify-self:end;font-size:11px}
+  .footer-credit{grid-column:1 / -1;grid-row:2;justify-self:stretch;text-align:center;white-space:nowrap;font-size:11px}
+}
+
 /* Mobile rendering performance: keep the glass look, reduce expensive per-frame work */
 html{scroll-behavior:auto;overscroll-behavior-y:contain}
 body{background-attachment:scroll}
@@ -264,7 +275,7 @@ body{background-attachment:scroll}
 </section>
 <section class="wrap section" id="about"><div class="section-head"><div><div class="kicker" data-i18n="aboutKicker">A LITTLE ABOUT US</div><h2 data-i18n="aboutTitle">Useful, not complicated.</h2><div class="section-sub" data-i18n="aboutDesc">Utilify brings everyday digital tasks together in one friendly place.</div></div></div></section>
 </main>
-<footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#" style="font-size:17px"><span class="brand-mark" style="width:30px;height:30px;border-radius:10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 2 4.5 13h6L10 22l9.5-12h-6L13 2Z"/></svg></span>utilify.</a><span data-i18n="footer">Made with <span class="heart-mark">♥</span> in Sri Lanka 🇱🇰</span><span>© <span id="year"></span> Utilify</span></div></footer>
+<footer class="footer"><div class="wrap footer-inner"><a class="brand footer-brand" href="#" style="font-size:17px"><span class="brand-mark" style="width:30px;height:30px;border-radius:10px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M13 2 4.5 13h6L10 22l9.5-12h-6L13 2Z"/></svg></span>utilify.</a><span class="footer-credit" data-i18n="footer">Made with <span class="heart-mark">♥</span> in Sri Lanka 🇱🇰</span><span class="footer-copyright">© <span id="year"></span> Utilify</span></div></footer>
 <div id="toast" role="status" aria-live="polite"></div><div class="modal-backdrop" id="modalBackdrop" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal"><div class="modal-head"><h2 id="modalTitle">Tool</h2><button class="close" id="closeModal" aria-label="Close">×</button></div><div id="modalBody"></div></div></div>
 <script>
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
