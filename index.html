@@ -208,11 +208,13 @@ body{
 .footer-inner{display:grid;grid-template-columns:auto 1fr auto;align-items:center;column-gap:18px;row-gap:12px}
 .footer-brand{justify-self:start}.footer-credit{justify-self:center;text-align:center}.footer-copyright{justify-self:end;white-space:nowrap}
 @media(max-width:640px){
-  .footer{padding:20px 0 24px}
-  .footer-inner{grid-template-columns:minmax(0,1fr) auto;column-gap:12px;row-gap:14px}
-  .footer-brand{grid-column:1;grid-row:1}
-  .footer-copyright{grid-column:2;grid-row:1;justify-self:end;font-size:11px}
-  .footer-credit{grid-column:1 / -1;grid-row:2;justify-self:stretch;text-align:center;white-space:nowrap;font-size:11px}
+  .footer{padding:18px 0 22px}
+  .footer-inner{display:grid;grid-template-columns:auto minmax(0,1fr) auto;align-items:center;column-gap:7px;row-gap:0}
+  .footer-brand{grid-column:1;grid-row:1;gap:5px;font-size:14px!important;letter-spacing:-.5px}
+  .footer-brand .brand-mark{width:25px!important;height:25px!important;border-radius:8px!important}
+  .footer-brand .brand-mark svg{width:16px;height:16px}
+  .footer-credit{grid-column:2;grid-row:1;justify-self:center;text-align:center;white-space:normal;font-size:clamp(8px,2.35vw,10px);line-height:1.35}
+  .footer-copyright{grid-column:3;grid-row:1;justify-self:end;white-space:nowrap;font-size:9px}
 }
 
 /* Mobile rendering performance: keep the glass look, reduce expensive per-frame work */
@@ -271,7 +273,7 @@ body{background-attachment:scroll}
 </section>
 <section class="wrap feature-band" id="popular">
 <div class="feature-card"><div class="kicker" data-i18n="madeSimple">MADE SIMPLE</div><h3 data-i18n="featureTitle">Less busywork.<br><span class="gradient">More doing.</span></h3><p data-i18n="featureDesc">Quick, helpful tools without the clutter. Your files stay on your device for image processing — no upload needed.</p><button class="primary" data-open="image" data-i18n="tryImage">Try Image Studio ↗</button><div class="mini-orb"></div></div>
-<div class="feature-card"><div class="kicker" data-i18n="privacyFirst">PRIVACY MINDED</div><h3 data-i18n="privacyTitle">Your work stays yours.</h3><p data-i18n="privacyDesc">Image compression and conversion happen locally in your browser. We don't upload your selected image to a server.</p><div class="stats"><div class="stat"><strong>0</strong><span data-i18n="uploads">Image uploads</span></div><div class="stat"><strong>Free</strong><span data-i18n="alwaysFree">Always free</span></div><div class="stat"><strong>2</strong><span data-i18n="languages">Languages</span></div></div></div>
+<div class="feature-card"><div class="kicker" data-i18n="privacyFirst">PRIVACY MINDED</div><h3 data-i18n="privacyTitle">Your work stays yours.</h3><p data-i18n="privacyDesc">Image compression and conversion happen locally in your browser. We don't upload your selected image to a server.</p><div class="stats"><div class="stat"><strong>0</strong><span data-i18n="uploads">Image uploads</span></div><div class="stat"><strong>Free</strong><span data-i18n="alwaysFree">Always free</span></div><div class="stat"><strong>12</strong><span data-i18n="languages">Languages</span></div></div></div>
 </section>
 <section class="wrap section" id="about"><div class="section-head"><div><div class="kicker" data-i18n="aboutKicker">A LITTLE ABOUT US</div><h2 data-i18n="aboutTitle">Useful, not complicated.</h2><div class="section-sub" data-i18n="aboutDesc">Utilify brings everyday digital tasks together in one friendly place.</div></div></div></section>
 </main>
